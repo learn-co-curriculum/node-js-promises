@@ -102,7 +102,7 @@ In the logic of our function, what we are doing is using the *request* module to
 
 ### 2. Taking our Custom Promises for a Spin (Plus Learning about Promise Error Handling)
 
-But now let's get to the point where we can use this Promise! Let's first just get ourselves to the point where we are getting a response from the USDA servers by fetching a list of the farmer's markets near the Flatiron School. This will be useful because we can see in what for the data comes back. Open our file, enter the following code, and then do `node promises-example.js` to run it:
+But now let's get to the point where we can use this Promise! Let's first just get ourselves to the point where we are getting a response from the USDA servers by fetching a list of the farmer's markets near the Flatiron School. This will be useful because we can see in what form the data comes back. Open our file, enter the following code, and then do `node promises-example.js` to run it:
 
 ```
 queryUSDAFarmersMarkets(10004)
