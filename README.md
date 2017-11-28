@@ -78,7 +78,7 @@ Now if you open `promises-example.js`, you'll see that there's some code already
 
 > Note: The knex library is what we call an ORM (or Object Relational Mapping) tool. You'll likely run into other ORMs in your career. Basically, what they do is provide a "virtual" database object that can be manipulated within a programming environment using a syntax that is distinct from the one the actual database uses. ORMs provide two important advantages: 1) The language or API that they provide for manipulating the database can be made to be easier to understand and read (or what programmers call "expressive"); 2) because they provide an independent API for the database, ORMs can usually be used interchangeably with different types of databases. That means you can change your database withotu needing to change your code!
 
-The first set of lines of code already present in the `promises-example.js` file (until about Line 17) configure our database connection. As this configuration is unique to knex itself, let's just accept it for now. The next it of code is a function that we've provided that can be used to query the Department of Agriculture's farmer's market API.
+The first set of lines of code already present in the `promises-example.js` file (until about Line 17) configure our database connection. As this configuration is unique to knex itself, let's just accept it for now. The next line of code is a function that we've provided that can be used to query the Department of Agriculture's farmer's market API.
 
 This function is interesting. Do you see why? Take a look at it for a second.
 
