@@ -51,7 +51,7 @@ This is a very simple example, but it expresses the core of the promises that a 
 
 If you're feeling confused by the "chaining" here, remember that we've seen this before when we used jQuery, e.g. `$('.some-div').show().hide()`. All that's happening here is that the `show` and `hide` functions are being called on the object that is returned by each previous method in the chain of functions. The jQuery API guarantees that each function returns objects that contain the methods in its library.
 
-Similarly, the Promises specification guarantees that all Promises will have a `then` method that when called returns the Promise object in question. Indeed, the [Promise/A+](http://promisesaplus.com) specification, which is the most influential Promises spec, defines promises in terms of the then method, stating bluntly: "[A] 'promise' is an object or function with a then method...."[^1]. And a then method, the spec continues, is just a method that "registers callbacks to receive either a promise's eventual value or the reason why he promise cannot be fulfilled."
+Similarly, the Promises specification guarantees that all Promises will have a `then` method that when called returns the Promise object in question. Indeed, the [Promise/A+](http://promisesaplus.com) specification, which is the most influential Promises spec, defines promises in terms of the then method, stating bluntly: "[A] 'promise' is an object or function with a then method...."[^1]. And a then method, the spec continues, is just a method that "registers callbacks to receive either a promise's eventual value or the reason why the promise cannot be fulfilled."
 
 But wait, you say, what about the `catch` function? Good point. Well, if you noticed in the above definition, the spec says that the `then` method allows us to register *multiple* callbacks -- yes we are still using callbacks -- and one of these callbacks takes the eventual value, while the other accepts a reason the promise failed. The actual signature of the `then` function therefore is: `then(onFulfilled, onRejected)`. And the `catch` method is just a shorthand for calling `then` with only a rejection callback handler, like so: `then(null, rejectionCallback)`. The code above, in other words, could also have been written like this:
 
@@ -78,7 +78,7 @@ Now if you open `promises-example.js`, you'll see that there's some code already
 
 > Note: The knex library is what we call an ORM (or Object Relational Mapping) tool. You'll likely run into other ORMs in your career. Basically, what they do is provide a "virtual" database object that can be manipulated within a programming environment using a syntax that is distinct from the one the actual database uses. ORMs provide two important advantages: 1) The language or API that they provide for manipulating the database can be made to be easier to understand and read (or what programmers call "expressive"); 2) because they provide an independent API for the database, ORMs can usually be used interchangeably with different types of databases. That means you can change your database withotu needing to change your code!
 
-The first set of lines of code already present in the `promises-example.js` file (until about Line 17) configure our database connection. As this configuration is unique to knex itself, let's just accept it for now. The next it of code is a function that we've provided that can be used to query the Department of Agriculture's farmer's market API.
+The first set of lines of code already present in the `promises-example.js` file (until about Line 17) configure our database connection. As this configuration is unique to knex itself, let's just accept it for now. The next line of code is a function that we've provided that can be used to query the Department of Agriculture's farmer's market API.
 
 This function is interesting. Do you see why? Take a look at it for a second.
 
@@ -102,7 +102,7 @@ In the logic of our function, what we are doing is using the *request* module to
 
 ### 2. Taking our Custom Promises for a Spin (Plus Learning about Promise Error Handling)
 
-But now let's get to the point where we can use this Promise! Let's first just get ourselves to the point where we are getting a response from the USDA servers by fetching a list of the farmer's markets near the Flatiron School. This will be useful because we can see in what for the data comes back. Open our file, enter the following code, and then do `node promises-example.js` to run it:
+But now let's get to the point where we can use this Promise! Let's first just get ourselves to the point where we are getting a response from the USDA servers by fetching a list of the farmer's markets near the Flatiron School. This will be useful because we can see in what form the data comes back. Open our file, enter the following code, and then do `node promises-example.js` to run it:
 
 ```
 queryUSDAFarmersMarkets(10004)
